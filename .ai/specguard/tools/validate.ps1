@@ -1,0 +1,1 @@
+npx specguard@latest validate

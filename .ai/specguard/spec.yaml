@@ -1,0 +1,22 @@
+spec_id: "default-spec"
+version: "0.1.0"
+
+repo:
+  forbidden_globs:
+    - "node_modules/**"
+    - "dist/**"
+    - ".env"
+
+deterministic_rules:
+  secret_patterns:
+    - name: "AWS Access Key"
+      regex: "AKIA[0-9A-Z]{16}"
+    - name: "Generic Secret"
+      regex: "secret\\s*=\\s*['\"][a-zA-Z0-9]{20,}['\"]"
+
+tool_verified:
+  steps:
+    - name: "Lint"
+      command: "npm run lint"
+      optional: true
+      skip_if_missing: true

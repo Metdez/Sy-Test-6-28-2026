@@ -1,0 +1,15 @@
+{
+  "name": "symphony-daemon-test",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "validate": "specguard validate --spec .ai/specguard/spec.yaml --report-dir .ai/specguard/reports",
+    "validate:staged": "specguard validate --staged --spec .ai/specguard/spec.yaml --report-dir .ai/specguard/reports",
+    "validate:ci": "specguard validate --spec .ai/specguard/spec.yaml --report-dir .ai/specguard/reports --format repair-json",
+    "guard": "specguard run --spec .ai/specguard/spec.yaml --report-dir .ai/specguard/reports",
+    "prepare": "node -e \"const fs=require('fs');const p='.git/hooks/pre-commit';if(fs.existsSync('.git')){fs.writeFileSync(p,'#!/bin/sh\\nnpx specguard validate --staged --spec .ai/specguard/spec.yaml\\n');fs.chmodSync(p,0o755);console.log('SpecGuard pre-commit hook installed.');}else{console.log('No .git dir — skipping hook install.');}\" "
+  },
+  "devDependencies": {
+    "specguard": "latest"
+  }
+}

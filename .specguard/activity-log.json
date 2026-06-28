@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1782682706401-k0414",
+    "timestamp": 1782682706401,
+    "pipeline": "import",
+    "status": "running",
+    "source": "extension"
+  },
+  {
+    "id": "1782682706464-lpv91",
+    "timestamp": 1782682706464,
+    "pipeline": "import",
+    "status": "fail",
+    "source": "extension",
+    "durationMs": 63,
+    "message": "exit code 1"
+  },
+  {
+    "id": "1782683098142-t0i50",
+    "timestamp": 1782683098142,
+    "pipeline": "import",
+    "status": "running",
+    "source": "extension"
+  },
+  {
+    "id": "1782683098206-cqi2q",
+    "timestamp": 1782683098206,
+    "pipeline": "import",
+    "status": "fail",
+    "source": "extension",
+    "durationMs": 64,
+    "message": "exit code 1"
+  }
+]
