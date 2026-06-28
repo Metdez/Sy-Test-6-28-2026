@@ -6,6 +6,9 @@ repo:
     - "node_modules/**"
     - "dist/**"
     - ".env"
+    - "__pycache__/**"
+    - "*.pyc"
+    - ".venv/**"
 
 deterministic_rules:
   secret_patterns:
@@ -13,10 +16,16 @@ deterministic_rules:
       regex: "AKIA[0-9A-Z]{16}"
     - name: "Generic Secret"
       regex: "secret\\s*=\\s*['\"][a-zA-Z0-9]{20,}['\"]"
+    - name: "Linear API Key"
+      regex: "lin_api_[a-zA-Z0-9]{40,}"
 
 tool_verified:
   steps:
+    - name: "Type Check"
+      command: "mypy src --ignore-missing-imports"
+      optional: true
+      skip_if_missing: true
     - name: "Lint"
-      command: "npm run lint"
+      command: "ruff check src"
       optional: true
       skip_if_missing: true
