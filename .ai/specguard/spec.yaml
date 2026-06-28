@@ -22,10 +22,10 @@ deterministic_rules:
 tool_verified:
   steps:
     - name: "Type Check"
-      command: "mypy src --ignore-missing-imports"
+      command: "python -m mypy src --ignore-missing-imports"
       optional: true
       skip_if_missing: true
     - name: "Lint"
-      command: "ruff check src"
+      command: "python -m ruff check src"
       optional: true
       skip_if_missing: true
